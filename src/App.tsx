@@ -69,28 +69,20 @@ export default function App() {
   const potentialLessonsPerMonth = potentialLessonsPerDay * 30;
 
   // ========== ДЛЯ САЙТА спринтум.рф ==========
-  // APK лежит в корне сайта: спринтум.рф/sprintum.apk
   const APK_URL = '/sprintum.apk';
   // ============================================
 
-  // Скачивание Android APK
+  // Скачивание Android APK - ТОЛЬКО ОДИН СПОСОБ
   const handleAndroidDownload = () => {
     setIsDownloading(true);
     
     try {
-      // Вариант 1: Просто открыть ссылку (самый надежный)
-      window.open(APK_URL, '_blank');
+      // Просто открываем ссылку - браузер сам начнет скачивание
+      window.location.href = APK_URL;
       
-      // Вариант 2: Скачать через ссылку
       setTimeout(() => {
-        const link = document.createElement('a');
-        link.href = APK_URL;
-        link.download = 'SprintUm.apk';
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
         setIsDownloading(false);
-      }, 100);
+      }, 1000);
     } catch (error) {
       console.error('Download error:', error);
       alert('❌ Ошибка при скачивании. Попробуйте позже.');
