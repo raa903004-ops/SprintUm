@@ -9,7 +9,7 @@ import {
   Send
 } from 'lucide-react';
 
-// VK icon (correct)
+// VK icon
 const VKIcon = ({ className = "w-5 h-5" }: { className?: string }) => (
   <svg className={className} viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
     <path d="M21.579 6.855c.14-.465 0-.805-.66-.805h-2.185c-.555 0-.81.295-.95.62 0 0-1.115 2.725-2.695 4.495-.51.51-.74.675-1.02.675-.14 0-.34-.165-.34-.63V6.855c0-.555-.16-.805-.62-.805h-3.43c-.345 0-.555.255-.555.495 0 .52.785.64.865 2.105v3.175c0 .695-.125.82-.4.82-.74 0-2.54-2.72-3.61-5.83-.21-.6-.42-.83-.98-.83H4.23c-.62 0-.74.295-.74.62 0 .58.735 3.46 3.42 7.27 1.79 2.6 4.32 4.01 6.62 4.01 1.38 0 1.55-.31 1.55-.845v-1.95c0-.62.13-.75.55-.75.31 0 .85.16 2.1 1.3 1.43 1.43 1.67 1.85 2.47 1.85h2.185c.62 0 .93-.31.75-.92-.2-.62-.91-1.52-1.86-2.58-.51-.6-1.27-1.25-1.5-1.57-.32-.38-.23-.55 0-.89.01 0 2.66-3.75 2.93-5.03z"/>
@@ -23,7 +23,15 @@ const TikTokIcon = ({ className = "w-5 h-5" }: { className?: string }) => (
   </svg>
 );
 
-// Custom pristine SVG implementation of the user's SprintUm Logo
+// Android Icon
+const AndroidIcon = ({ className = "w-6 h-6" }: { className?: string }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+    <path d="M17.523 7.338a.687.687 0 0 0-.972.236.687.687 0 0 0 .236.972 6.572 6.572 0 0 1 3.037 5.548H4.176a6.572 6.572 0 0 1 3.037-5.548.687.687 0 1 0-.736-1.159 7.945 7.945 0 0 0-3.672 6.707h.007v.072a8.435 8.435 0 0 0 .625 3.153l-1.327 1.327a.687.687 0 1 0 .972.972l1.246-1.246a8.366 8.366 0 0 0 5.671 2.086 8.366 8.366 0 0 0 5.671-2.086l1.246 1.246a.687.687 0 1 0 .972-.972l-1.327-1.327a8.435 8.435 0 0 0 .625-3.153v-.072h.007a7.945 7.945 0 0 0-3.672-6.707zm-7.546 8.162a.92.92 0 1 1 0-1.84.92.92 0 0 1 0 1.84zm4.046 0a.92.92 0 1 1 0-1.84.92.92 0 0 1 0 1.84z" />
+    <path d="M12 2.5c-1.104 0-2 .896-2 2s.896 2 2 2 2-.896 2-2-.896-2-2-2z" />
+  </svg>
+);
+
+// App Logo
 export function AppLogo({ className = "w-12 h-12" }: { className?: string }) {
   return (
     <svg viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
@@ -39,16 +47,12 @@ export function AppLogo({ className = "w-12 h-12" }: { className?: string }) {
       <g transform="rotate(35, 256, 256)">
         <path d="M 110, 255 Q 92, 260 82, 245 T 108, 222" fill="none" stroke="white" strokeWidth="12" strokeLinecap="round" opacity="0.5" />
         <path d="M 128, 218 Q 102, 225 92, 208 T 120, 182" fill="none" stroke="white" strokeWidth="14" strokeLinecap="round" opacity="0.75" />
-        
         <path d="M 155, 210 C 115, 265 140, 360 256, 375 C 315, 375 365, 315 385, 245" fill="none" stroke="white" strokeWidth="20" strokeLinecap="round" strokeLinejoin="round" />
         <path d="M 353, 248 L 390, 230 L 398, 275" fill="none" stroke="white" strokeWidth="20" strokeLinecap="round" strokeLinejoin="round" />
-
         <path d="M 196, 210 A 60,60 0 1,1 316,210 C 316,245 286,275 286,295 L 226,295 C 226,275 196,245 196,210 Z" fill="none" stroke="white" strokeWidth="20" strokeLinejoin="round" strokeLinecap="round" />
-        
         <path d="M 233, 310 L 279, 310" stroke="white" strokeWidth="20" strokeLinecap="round" />
         <path d="M 239, 328 L 273, 328" stroke="white" strokeWidth="16" strokeLinecap="round" />
         <path d="M 246, 344 L 266, 344" stroke="white" strokeWidth="12" strokeLinecap="round" />
-
         <path d="M 251, 201 C 238, 187 220, 192 212, 197 V 225 C 220, 220 238, 215 251, 228 Z" fill="white" />
         <path d="M 261, 201 C 274, 187 292, 192 300, 197 V 225 C 292, 220 274, 215 261, 228 Z" fill="white" />
       </g>
@@ -59,29 +63,44 @@ export function AppLogo({ className = "w-12 h-12" }: { className?: string }) {
 export default function App() {
   const [reelsMinutes, setReelsMinutes] = useState(45);
   const [isDownloadModalOpen, setIsDownloadModalOpen] = useState(false);
-  const [downloadPlatform, setDownloadPlatform] = useState<'ios' | 'android' | null>(null);
-  const [progress, setProgress] = useState(0);
   const [isDownloading, setIsDownloading] = useState(false);
 
   const potentialLessonsPerDay = Math.floor(reelsMinutes / 3.5);
   const potentialLessonsPerMonth = potentialLessonsPerDay * 30;
 
-  const handleDownloadSimulation = (platform: 'ios' | 'android') => {
-    setDownloadPlatform(platform);
-    setIsDownloading(true);
-    setProgress(0);
+  // ========== ДЛЯ САЙТА спринтум.рф ==========
+  // APK лежит в корне сайта: спринтум.рф/sprintum.apk
+  const APK_URL = '/sprintum.apk';
+  // ============================================
 
-    const interval = setInterval(() => {
-      setProgress(prev => {
-        const step = Math.floor(Math.random() * 25) + 12;
-        if (prev + step >= 100) {
-          clearInterval(interval);
-          setIsDownloading(false);
-          return 100;
-        }
-        return prev + step;
-      });
-    }, 200);
+  // Скачивание Android APK
+  const handleAndroidDownload = () => {
+    setIsDownloading(true);
+    
+    try {
+      // Вариант 1: Просто открыть ссылку (самый надежный)
+      window.open(APK_URL, '_blank');
+      
+      // Вариант 2: Скачать через ссылку
+      setTimeout(() => {
+        const link = document.createElement('a');
+        link.href = APK_URL;
+        link.download = 'SprintUm.apk';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        setIsDownloading(false);
+      }, 100);
+    } catch (error) {
+      console.error('Download error:', error);
+      alert('❌ Ошибка при скачивании. Попробуйте позже.');
+      setIsDownloading(false);
+    }
+  };
+
+  // iPhone (заглушка)
+  const handleIosDownload = () => {
+    alert('📱 Версия для iPhone будет доступна скоро! Следите за обновлениями в наших соцсетях.');
   };
 
   // Social links
@@ -118,10 +137,7 @@ export default function App() {
           </div>
 
           <button
-            onClick={() => {
-              setDownloadPlatform(null);
-              setIsDownloadModalOpen(true);
-            }}
+            onClick={() => setIsDownloadModalOpen(true)}
             className="bg-gradient-to-r from-emerald-500 via-teal-500 to-cyan-500 text-[#070D0F] font-black text-xs px-5 py-2.5 rounded-full hover:brightness-110 active:scale-95 transition-all shadow-lg shadow-teal-500/10"
           >
             Скачать
@@ -148,37 +164,32 @@ export default function App() {
           {/* App buttons */}
           <div className="flex flex-col sm:flex-row items-center gap-4 justify-center w-full max-w-md">
             <button 
-              onClick={() => {
-                setIsDownloadModalOpen(true);
-                handleDownloadSimulation('ios');
-              }}
-              className="w-full sm:w-1/2 flex items-center justify-center gap-3 bg-[#0B1518] hover:bg-[#122429] border border-[#16333A] text-white px-5 py-3.5 rounded-2xl transition-all font-semibold hover:border-teal-500/40 text-left cursor-pointer active:scale-98"
+              onClick={handleIosDownload}
+              className="w-full sm:w-1/2 flex items-center justify-center gap-3 bg-[#0B1518] border border-[#16333A] text-white px-5 py-3.5 rounded-2xl transition-all font-semibold text-left cursor-pointer opacity-60 hover:opacity-80"
             >
               <svg className="w-6 h-6 text-white fill-current shrink-0" viewBox="0 0 24 24">
                 <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 4.17c.66-.81 1.11-1.93.99-3.06-.96.04-2.13.64-2.82 1.45-.6.69-1.12 1.84-.98 2.94 1.07.08 2.16-.52 2.81-1.33z" />
               </svg>
-              <div className="flex flex-col">
-                <span className="text-[9px] text-[#80A4AD] uppercase tracking-wider font-bold leading-none mb-1">Скачать на</span>
-                <span className="text-sm font-black text-white leading-none">App Store</span>
+              <div className="flex flex-col text-left">
+                <span className="text-[9px] text-[#80A4AD] uppercase tracking-wider font-bold leading-none mb-1">Скоро</span>
+                <span className="text-sm font-black text-white leading-none">iPhone</span>
               </div>
+              <span className="ml-auto text-[10px] font-bold text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded-full">
+                Скоро
+              </span>
             </button>
 
             <button 
-              onClick={() => {
-                setIsDownloadModalOpen(true);
-                handleDownloadSimulation('android');
-              }}
-              className="w-full sm:w-1/2 flex items-center justify-center gap-3 bg-[#0B1518] hover:bg-[#122429] border border-[#16333A] text-white px-5 py-3.5 rounded-2xl transition-all font-semibold hover:border-teal-500/40 text-left cursor-pointer active:scale-98"
+              onClick={handleAndroidDownload}
+              disabled={isDownloading}
+              className="w-full sm:w-1/2 flex items-center justify-center gap-3 bg-[#0B1518] hover:bg-[#122429] border border-[#16333A] text-white px-5 py-3.5 rounded-2xl transition-all font-semibold hover:border-teal-500/40 text-left cursor-pointer active:scale-98 disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              <svg className="w-6 h-6 text-emerald-400 shrink-0" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M5.25 3C5.1 3 4.95 3.03 4.81 3.09L15.81 14.09L19.08 10.82L5.69 3.19C5.55 3.07 5.4 3 5.25 3Z" fill="currentColor" opacity="0.8" />
-                <path d="M3.47 3.87C3.32 4.22 3.25 4.61 3.25 5.02V18.98C3.25 19.39 3.32 19.78 3.47 20.13L13.44 10.16L3.47 3.87Z" fill="currentColor" />
-                <path d="M14.59 15.22L3.56 26.22C3.7 26.28 3.85 26.31 4 26.31C4.15 26.31 4.3 26.24 4.44 26.12L17.87 18.49L14.59 15.22Z" fill="currentColor" />
-                <path d="M17.47 11.87L21.31 9.69C21.72 9.46 22 9 22 8.5C22 8 21.72 7.54 21.31 7.31L17.47 5.13L13.81 8.79L17.47 11.87Z" fill="currentColor" opacity="0.9" />
-              </svg>
+              <AndroidIcon className="w-6 h-6 text-emerald-400 shrink-0" />
               <div className="flex flex-col text-left">
-                <span className="text-[9px] text-[#80A4AD] uppercase tracking-wider font-bold leading-none mb-1">Доступно в</span>
-                <span className="text-sm font-black text-white leading-none">Google Play</span>
+                <span className="text-[9px] text-[#80A4AD] uppercase tracking-wider font-bold leading-none mb-1">Доступно для</span>
+                <span className="text-sm font-black text-white leading-none">
+                  {isDownloading ? 'Загрузка...' : 'Android'}
+                </span>
               </div>
             </button>
           </div>
@@ -315,11 +326,10 @@ export default function App() {
         </section>
       </main>
 
-      {/* FOOTER - NO "© 2026 СпринтУм" and NO "О проекте" */}
+      {/* FOOTER */}
       <footer className="bg-[#040809] border-t border-teal-950/60 py-8 text-xs text-slate-400 relative z-10">
         <div className="max-w-6xl mx-auto px-6">
           <div className="flex flex-col items-center justify-center gap-5">
-            {/* Logo */}
             <div className="flex items-center gap-2.5">
               <AppLogo className="w-8 h-8" />
               <div className="flex flex-col text-left">
@@ -328,7 +338,6 @@ export default function App() {
               </div>
             </div>
 
-            {/* Social Media Links - only icons, no text */}
             <div className="flex gap-6">
               {socialLinks.map((social) => (
                 <a
@@ -344,7 +353,6 @@ export default function App() {
               ))}
             </div>
 
-            {/* Only the contest credit, no copyright or "О проекте" */}
             <p className="text-slate-500 text-[10px] leading-relaxed text-center max-w-2xl mx-auto mt-2">
               Сайт разработан в рамках конкурса Техностартап-2026 командой Восход (Бойко Виталий, Гетманенко Евгений, Воронова Мария. Наставник: Красильников Алексей Петрович)
             </p>
@@ -362,45 +370,28 @@ export default function App() {
             <AppLogo className="w-16 h-16 mx-auto mb-4" />
             <h3 className="text-xl font-black text-white mb-6">Бесплатная установка СпринтУм</h3>
 
-            {!downloadPlatform ? (
-              <div className="space-y-2.5">
-                <button onClick={() => handleDownloadSimulation('ios')} className="w-full bg-[#0E2024] hover:bg-[#163036] border border-teal-500/20 text-white font-bold py-3 px-4 rounded-xl flex items-center justify-center gap-2 transition-all cursor-pointer">
-                  <svg className="w-4 h-4 fill-current text-white" viewBox="0 0 24 24">
-                    <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 4.17c.66-.81 1.11-1.93.99-3.06-.96.04-2.13.64-2.82 1.45-.6.69-1.12 1.84-.98 2.94 1.07.08 2.16-.52 2.81-1.33z" />
-                  </svg>
-                  Скачать для iOS (iPhone)
-                </button>
-                <button onClick={() => handleDownloadSimulation('android')} className="w-full bg-[#0E2024] hover:bg-[#163036] border border-teal-500/20 text-white font-bold py-3 px-4 rounded-xl flex items-center justify-center gap-2 transition-all cursor-pointer">
-                  <svg className="w-4 h-4 text-emerald-400" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M5.25 3C5.1 3 4.95 3.03 4.81 3.09L15.81 14.09L19.08 10.82L5.69 3.19C5.55 3.07 5.4 3 5.25 3Z" fill="currentColor" />
-                    <path d="M3.47 3.87C3.32 4.22 3.25 4.61 3.25 5.02V18.98C3.25 19.39 3.32 19.78 3.47 20.13L13.44 10.16L3.47 3.87Z" fill="currentColor" />
-                    <path d="M14.59 15.22L3.56 26.22C3.7 26.28 3.85 26.31 4 26.31C4.15 26.31 4.3 26.24 4.44 26.12L17.87 18.49L14.59 15.22Z" fill="currentColor" />
-                    <path d="M17.47 11.87L21.31 9.69C21.72 9.46 22 9 22 8.5C22 8 21.72 7.54 21.31 7.31L17.47 5.13L13.81 8.79L17.47 11.87Z" fill="currentColor" />
-                  </svg>
-                  Скачать для Android
-                </button>
-              </div>
-            ) : (
-              <div className="space-y-4">
-                <span className="text-xs uppercase font-bold text-teal-400 block">
-                  Загрузка на {downloadPlatform === 'ios' ? 'iOS устройств...' : 'Android устройство...'}
+            <div className="space-y-2.5">
+              <button 
+                onClick={handleIosDownload}
+                className="w-full bg-[#0E2024] border border-teal-500/20 text-white font-bold py-3 px-4 rounded-xl flex items-center justify-center gap-2 transition-all cursor-pointer opacity-60 hover:opacity-80"
+              >
+                <svg className="w-4 h-4 fill-current text-white" viewBox="0 0 24 24">
+                  <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 4.17c.66-.81 1.11-1.93.99-3.06-.96.04-2.13.64-2.82 1.45-.6.69-1.12 1.84-.98 2.94 1.07.08 2.16-.52 2.81-1.33z" />
+                </svg>
+                Скачать для iPhone
+                <span className="ml-auto text-[10px] font-bold text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded-full">
+                  Скоро
                 </span>
-                <div className="w-full bg-slate-900 h-2 rounded-full overflow-hidden">
-                  <div className="h-full bg-gradient-to-r from-emerald-400 to-cyan-400 transition-all duration-150" style={{ width: `${progress}%` }} />
-                </div>
-                <span className="text-xl font-black text-white">{progress}%</span>
-                {progress === 100 ? (
-                  <div className="pt-2">
-                    <span className="text-xs font-bold text-emerald-400 block mb-3">✓ Успешно установлено!</span>
-                    <button onClick={() => setIsDownloadModalOpen(false)} className="bg-emerald-500 text-slate-900 text-xs font-black px-6 py-2 rounded-full">
-                      Закрыть и начать пользоваться
-                    </button>
-                  </div>
-                ) : (
-                  <p className="text-[10px] text-slate-500">Пожалуйста, подождите завершения установки...</p>
-                )}
-              </div>
-            )}
+              </button>
+              <button 
+                onClick={handleAndroidDownload}
+                disabled={isDownloading}
+                className="w-full bg-[#0E2024] hover:bg-[#163036] border border-teal-500/20 text-white font-bold py-3 px-4 rounded-xl flex items-center justify-center gap-2 transition-all cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                <AndroidIcon className="w-5 h-5 text-emerald-400" />
+                {isDownloading ? 'Загрузка...' : 'Скачать для Android'}
+              </button>
+            </div>
           </div>
         </div>
       )}
