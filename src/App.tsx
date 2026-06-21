@@ -31,35 +31,6 @@ const AndroidIcon = ({ className = "w-6 h-6" }: { className?: string }) => (
   </svg>
 );
 
-// App Logo
-export function AppLogo({ className = "w-12 h-12" }: { className?: string }) {
-  return (
-    <svg viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
-      <defs>
-        <linearGradient id="sprintumGrad" x1="100%" y1="0%" x2="0%" y2="100%">
-          <stop offset="0%" stopColor="#4BF0A5" />
-          <stop offset="100%" stopColor="#05B7C2" />
-        </linearGradient>
-      </defs>
-      
-      <rect width="512" height="512" rx="128" fill="url(#sprintumGrad)" />
-      
-      <g transform="rotate(35, 256, 256)">
-        <path d="M 110, 255 Q 92, 260 82, 245 T 108, 222" fill="none" stroke="white" strokeWidth="12" strokeLinecap="round" opacity="0.5" />
-        <path d="M 128, 218 Q 102, 225 92, 208 T 120, 182" fill="none" stroke="white" strokeWidth="14" strokeLinecap="round" opacity="0.75" />
-        <path d="M 155, 210 C 115, 265 140, 360 256, 375 C 315, 375 365, 315 385, 245" fill="none" stroke="white" strokeWidth="20" strokeLinecap="round" strokeLinejoin="round" />
-        <path d="M 353, 248 L 390, 230 L 398, 275" fill="none" stroke="white" strokeWidth="20" strokeLinecap="round" strokeLinejoin="round" />
-        <path d="M 196, 210 A 60,60 0 1,1 316,210 C 316,245 286,275 286,295 L 226,295 C 226,275 196,245 196,210 Z" fill="none" stroke="white" strokeWidth="20" strokeLinejoin="round" strokeLinecap="round" />
-        <path d="M 233, 310 L 279, 310" stroke="white" strokeWidth="20" strokeLinecap="round" />
-        <path d="M 239, 328 L 273, 328" stroke="white" strokeWidth="16" strokeLinecap="round" />
-        <path d="M 246, 344 L 266, 344" stroke="white" strokeWidth="12" strokeLinecap="round" />
-        <path d="M 251, 201 C 238, 187 220, 192 212, 197 V 225 C 220, 220 238, 215 251, 228 Z" fill="white" />
-        <path d="M 261, 201 C 274, 187 292, 192 300, 197 V 225 C 292, 220 274, 215 261, 228 Z" fill="white" />
-      </g>
-    </svg>
-  );
-}
-
 export default function App() {
   const [reelsMinutes, setReelsMinutes] = useState(45);
   const [isDownloadModalOpen, setIsDownloadModalOpen] = useState(false);
@@ -72,12 +43,11 @@ export default function App() {
   const APK_URL = '/sprintum.apk';
   // ============================================
 
-  // Скачивание Android APK - ТОЛЬКО ОДИН СПОСОБ
+  // Скачивание Android APK
   const handleAndroidDownload = () => {
     setIsDownloading(true);
     
     try {
-      // Просто открываем ссылку - браузер сам начнет скачивание
       window.location.href = APK_URL;
       
       setTimeout(() => {
@@ -117,7 +87,11 @@ export default function App() {
       <header className="sticky top-0 z-40 bg-[#070D0F]/90 backdrop-blur-md border-b border-teal-950/40 relative">
         <div className="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <AppLogo className="w-10 h-10" />
+            <img 
+              src="/logo.png" 
+              alt="СпринтУм" 
+              className="h-10 w-auto"
+            />
             <div className="flex flex-col text-left">
               <span className="text-xl font-black tracking-tight text-white leading-none mb-1">
                 СпринтУм
@@ -323,7 +297,11 @@ export default function App() {
         <div className="max-w-6xl mx-auto px-6">
           <div className="flex flex-col items-center justify-center gap-5">
             <div className="flex items-center gap-2.5">
-              <AppLogo className="w-8 h-8" />
+              <img 
+                src="/logo.png" 
+                alt="СпринтУм" 
+                className="h-8 w-auto"
+              />
               <div className="flex flex-col text-left">
                 <span className="text-sm font-bold text-white tracking-tight">СпринтУм</span>
                 <span className="text-[9px] uppercase tracking-widest text-[#10B981] font-bold">короткие видеокурсы</span>
@@ -359,7 +337,13 @@ export default function App() {
             <button onClick={() => setIsDownloadModalOpen(false)} className="absolute top-4 right-4 text-slate-400 hover:text-white p-1">
               <X className="w-5 h-5" />
             </button>
-            <AppLogo className="w-16 h-16 mx-auto mb-4" />
+            
+            <img 
+              src="/logo.png" 
+              alt="СпринтУм" 
+              className="h-16 w-auto mx-auto mb-4"
+            />
+            
             <h3 className="text-xl font-black text-white mb-6">Бесплатная установка СпринтУм</h3>
 
             <div className="space-y-2.5">
