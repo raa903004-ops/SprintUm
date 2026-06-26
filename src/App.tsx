@@ -344,10 +344,12 @@ export default function App() {
               Сайт разработан в рамках конкурса Техностартап-2026 командой Восход (Бойко Виталий, Гетманенко Евгений, Воронова Мария. Наставник: Красильников Алексей Петрович)
             </p>
 
-            <div className="flex gap-4 text-[10px] text-slate-500">
+            <div className="flex flex-wrap justify-center gap-4 text-[10px] text-slate-500">
               <button onClick={() => setPage('privacy')} className="hover:text-teal-400 transition-colors cursor-pointer">Политика конфиденциальности</button>
               <span>·</span>
               <button onClick={() => setPage('agreement')} className="hover:text-teal-400 transition-colors cursor-pointer">Пользовательское соглашение</button>
+              <span>·</span>
+              <a href="mailto:sprintum422@gmail.com" className="hover:text-teal-400 transition-colors">sprintum422@gmail.com</a>
             </div>
           </div>
         </div>
