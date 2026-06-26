@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import PrivacyPage from './PrivacyPage';
+import AgreementPage from './AgreementPage';
 import { 
   Clock, 
   Zap, 
@@ -39,10 +41,16 @@ const AndroidIcon = ({ className = "w-6 h-6" }: { className?: string }) => (
   </svg>
 );
 
+type Page = 'home' | 'privacy' | 'agreement';
+
 export default function App() {
+  const [page, setPage] = useState<Page>('home');
   const [reelsMinutes, setReelsMinutes] = useState(45);
   const [isDownloadModalOpen, setIsDownloadModalOpen] = useState(false);
   const [isDownloading, setIsDownloading] = useState(false);
+
+  if (page === 'privacy') return <PrivacyPage onBack={() => setPage('home')} />;
+  if (page === 'agreement') return <AgreementPage onBack={() => setPage('home')} />;
 
   const potentialLessonsPerDay = Math.floor(reelsMinutes / 3.5);
   const potentialLessonsPerMonth = potentialLessonsPerDay * 30;
@@ -335,6 +343,12 @@ export default function App() {
             <p className="text-slate-500 text-[10px] leading-relaxed text-center max-w-2xl mx-auto mt-2">
               Сайт разработан в рамках конкурса Техностартап-2026 командой Восход (Бойко Виталий, Гетманенко Евгений, Воронова Мария. Наставник: Красильников Алексей Петрович)
             </p>
+
+            <div className="flex gap-4 text-[10px] text-slate-500">
+              <button onClick={() => setPage('privacy')} className="hover:text-teal-400 transition-colors cursor-pointer">Политика конфиденциальности</button>
+              <span>·</span>
+              <button onClick={() => setPage('agreement')} className="hover:text-teal-400 transition-colors cursor-pointer">Пользовательское соглашение</button>
+            </div>
           </div>
         </div>
       </footer>
