@@ -23,6 +23,15 @@ const TikTokIcon = ({ className = "w-5 h-5" }: { className?: string }) => (
   </svg>
 );
 
+// MAX icon
+const MaxIcon = ({ className = "w-5 h-5" }: { className?: string }) => (
+  <svg className={className} viewBox="0 0 1000 1000" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+    <g transform="matrix(0.1, 0, 0, -0.1, 3.722084, 1002.481353)" fill="currentColor" stroke="none">
+      <path d="M4752 6905 c-760 -116 -1332 -675 -1531 -1497 -66 -273 -86 -488 -78 -861 10 -517 96 -969 234 -1239 52 -101 98 -148 146 -148 72 0 234 102 406 254 56 50 81 66 104 66 17 0 66 -21 117 -51 396 -228 803 -296 1245 -208 357 72 726 276 985 545 318 331 496 737 525 1199 12 191 -24 452 -92 655 -213 640 -760 1125 -1428 1266 -101 22 -153 26 -330 29 -148 3 -237 0 -303 -10z"/>
+    </g>
+  </svg>
+);
+
 // Android Icon
 const AndroidIcon = ({ className = "w-6 h-6" }: { className?: string }) => (
   <svg className={className} viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -71,6 +80,7 @@ export default function App() {
     { name: 'Telegram', url: 'https://t.me/SptintUm', icon: <Send className="w-5 h-5" />, color: 'hover:text-sky-400' },
     { name: 'Instagram', url: 'https://www.instagram.com/sprintum1?igsh=cGY1bzY1ejdjaDF6', icon: <Instagram className="w-5 h-5" />, color: 'hover:text-pink-500' },
     { name: 'TikTok', url: 'https://www.tiktok.com/@sprinayun5p?_r=1&_t=ZN-978sB95JcoA', icon: <TikTokIcon className="w-5 h-5" />, color: 'hover:text-white' },
+    { name: 'MAX', url: 'https://max.ru/join/MiFNuzMZ7zsj1LZWzce9PzHDO8NhjuQ6Fg-PuJKODoM', icon: <MaxIcon className="w-7 h-7" />, color: 'hover:text-violet-400' },
   ];
 
   return (
