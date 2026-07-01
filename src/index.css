@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @keyframes heartFly {
   0% {
     transform: translateY(0) scale(0.6);

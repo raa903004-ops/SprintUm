@@ -1,11 +1,11 @@
 export default function AgreementPage({ onBack }: { onBack: () => void }) {
   return (
-    <div className="min-h-screen bg-[#070D0F] text-[#ECEFF1] font-sans antialiased">
-      <header className="sticky top-0 z-40 bg-[#070D0F]/90 backdrop-blur-md border-b border-teal-950/40">
+    <div className="min-h-screen bg-[#F5FBFA] text-[#0E2A2E] dark:bg-[#070D0F] dark:text-[#ECEFF1] font-sans antialiased">
+      <header className="sticky top-0 z-40 bg-[#F5FBFA]/90 dark:bg-[#070D0F]/90 backdrop-blur-md border-b border-teal-100 dark:border-teal-950/40">
         <div className="max-w-6xl mx-auto px-6 h-16 flex items-center">
           <button
             onClick={onBack}
-            className="text-[#10B981] hover:text-emerald-300 font-bold text-sm tracking-wide transition-colors"
+            className="text-[#059669] hover:text-emerald-700 dark:text-[#10B981] dark:hover:text-emerald-300 font-bold text-sm tracking-wide transition-colors"
           >
             ← СпринтУм
           </button>
@@ -13,12 +13,12 @@ export default function AgreementPage({ onBack }: { onBack: () => void }) {
       </header>
 
       <main className="max-w-2xl mx-auto px-6 py-12 pb-24">
-        <h1 className="text-3xl font-black text-white mb-10">Пользовательское соглашение</h1>
+        <h1 className="text-3xl font-black text-slate-900 dark:text-white mb-10">Пользовательское соглашение</h1>
 
         {sections.map(([title, body]) => (
           <div key={title} className="mb-8">
-            <h2 className="text-base font-bold text-white mb-2">{title}</h2>
-            <p className="text-sm text-slate-300 leading-relaxed whitespace-pre-line">{body}</p>
+            <h2 className="text-base font-bold text-slate-900 dark:text-white mb-2">{title}</h2>
+            <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed whitespace-pre-line">{body}</p>
           </div>
         ))}
       </main>
